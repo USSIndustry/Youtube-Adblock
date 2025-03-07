@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YT Adblocker",
+  "version": "1.0",
+  "description": "Credit : USSIndustry - Got bored and made this since uBlock Origin went down.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.googlevideo.com/*",
+    "*://*.doubleclick.net/*",
+    "*://googleads.g.doubleclick.net/*",
+    "*://*.google-analytics.com/*"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*.youtube.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "rules1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}
